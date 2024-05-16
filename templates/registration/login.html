@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+  input{
+    max-width: 30em;
+  }
+  .bt{
+    height:65px;
+    width:65px;
+    padding: 0;
+  }
+  img{
+    height:60px;
+    width:60px;
+  }
+  .num{
+    border: none;
+    font-weight: bold;
+    height:65px;
+    width:65px;
+    padding: 0;
+  }
+</style>
+
+<h2 class="ps-5">Log In</h2>
+<form class="ps-5" method="post">
+  {% csrf_token %}
+  <!-- Username:{{ form.username }}
+  {{ form.password.as_hidden }} -->
+  {{ form|crispy }}
+  <div id="btn"></div>
+  <div class="pt-4 pb-4" id="rst"><button class="text-center btn btn-danger" type="button">Reset</button></div>
+  <div ><button class="text-center btn btn-dark" type="submit">Log In</button></div>
+</form>
+
+<script src="{% static 'js/test.js' %}"></script>
+
+{% endblock %}
